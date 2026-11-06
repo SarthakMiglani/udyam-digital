@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 760" font-family="Helvetica,Arial,sans-serif">
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#6b7280"/></marker></defs>
+<rect width="1280" height="760" fill="#f5f6f8"/>
+<text x="40" y="46" font-size="26" font-weight="700" fill="#14171f">Udyam Digital: architecture</text>
+<text x="40" y="72" font-size="14" fill="#667085">A rules engine decides. The LLM only talks. Documents are read in a separate service and deleted after the check.</text>
+
+<g font-size="14" fill="#14171f">
+<!-- channels -->
+<rect x="40" y="110" width="210" height="64" rx="12" fill="#fff" stroke="#e4e7ec"/><text x="145" y="138" text-anchor="middle" font-weight="700">Web app</text><text x="145" y="158" text-anchor="middle" fill="#667085" font-size="12.5">English and Hindi, mobile first</text>
+<rect x="40" y="196" width="210" height="64" rx="12" fill="#fff" stroke="#e4e7ec"/><text x="145" y="224" text-anchor="middle" font-weight="700">WhatsApp</text><text x="145" y="244" text-anchor="middle" fill="#667085" font-size="12.5">Cloud API webhook, send mocked</text>
+<text x="40" y="98" font-size="12" fill="#667085" letter-spacing="1">CHANNELS</text>
+
+<!-- advisor -->
+<rect x="320" y="110" width="250" height="150" rx="14" fill="#fff1f1" stroke="#e40000"/>
+<text x="445" y="138" text-anchor="middle" font-weight="700" fill="#b80000">Advisor</text>
+<text x="445" y="162" text-anchor="middle" font-size="13">Scripted state machine</text>
+<text x="445" y="182" text-anchor="middle" font-size="13">Optional LLM: extract fields only</text>
+<text x="445" y="202" text-anchor="middle" font-size="13">Output validated, else fallback</text>
+<text x="445" y="228" text-anchor="middle" font-size="12.5" fill="#667085">Sees typed answers only.</text>
+<text x="445" y="246" text-anchor="middle" font-size="12.5" fill="#667085">Never images or full IDs.</text>
+
+<!-- rules -->
+<rect x="640" y="110" width="270" height="150" rx="14" fill="#fff" stroke="#14171f" stroke-width="2"/>
+<text x="775" y="138" text-anchor="middle" font-weight="700">Rules engine (decides)</text>
+<text x="775" y="162" text-anchor="middle" font-size="13">City tier, min staff, min sites</text>
+<text x="775" y="182" text-anchor="middle" font-size="13">GSTIN required, dependencies</text>
+<text x="775" y="202" text-anchor="middle" font-size="13">Pricing and setup from catalogue</text>
+<text x="775" y="228" text-anchor="middle" font-size="12.5" fill="#667085">Serviceability: fibre, else 5G AirFiber,</text>
+<text x="775" y="246" text-anchor="middle" font-size="12.5" fill="#667085">else surveyor (mock lookup)</text>
+
+<!-- quote consent -->
+<rect x="980" y="110" width="260" height="64" rx="12" fill="#fff" stroke="#e4e7ec"/><text x="1110" y="138" text-anchor="middle" font-weight="700">Quote</text><text x="1110" y="158" text-anchor="middle" fill="#667085" font-size="12.5">One monthly price, toggled add-ons</text>
+<rect x="980" y="196" width="260" height="64" rx="12" fill="#e6f6ec" stroke="#0f7b3f"/><text x="1110" y="224" text-anchor="middle" font-weight="700" fill="#0f7b3f">Consent gate</text><text x="1110" y="244" text-anchor="middle" fill="#2f5b44" font-size="12.5">No consent, no document is read</text>
+
+<!-- KYC -->
+<rect x="320" y="320" width="590" height="170" rx="14" fill="#fff" stroke="#0f7b3f" stroke-width="2"/>
+<text x="615" y="348" text-anchor="middle" font-weight="700" fill="#0f7b3f">Smart KYC service (separate from the advisor)</text>
+<rect x="340" y="364" width="130" height="58" rx="10" fill="#f6fbf8" stroke="#cfe9da"/><text x="405" y="388" text-anchor="middle" font-size="13" font-weight="700">Read</text><text x="405" y="406" text-anchor="middle" font-size="11.5" fill="#667085">multi-pass OCR</text>
+<rect x="484" y="364" width="130" height="58" rx="10" fill="#f6fbf8" stroke="#cfe9da"/><text x="549" y="388" text-anchor="middle" font-size="13" font-weight="700">Validate</text><text x="549" y="406" text-anchor="middle" font-size="11.5" fill="#667085">GSTIN checksum</text>
+<rect x="628" y="364" width="130" height="58" rx="10" fill="#f6fbf8" stroke="#cfe9da"/><text x="693" y="388" text-anchor="middle" font-size="13" font-weight="700">Look up</text><text x="693" y="406" text-anchor="middle" font-size="11.5" fill="#667085">GSTIN, Udyam (mock)</text>
+<rect x="772" y="364" width="120" height="58" rx="10" fill="#f6fbf8" stroke="#cfe9da"/><text x="832" y="388" text-anchor="middle" font-size="13" font-weight="700">Cross-check</text><text x="832" y="406" text-anchor="middle" font-size="11.5" fill="#667085">name, address, ID</text>
+<text x="615" y="450" text-anchor="middle" font-size="13">Decision: REUPLOAD, then LIMITED, then REVIEW, then VERIFIED</text>
+<text x="615" y="472" text-anchor="middle" font-size="12.5" fill="#667085">IDs masked. Images deleted the moment the check ends. Match on number, never on name.</text>
+
+<!-- checkout tracker -->
+<rect x="980" y="320" width="260" height="76" rx="12" fill="#fff" stroke="#e4e7ec"/><text x="1110" y="350" text-anchor="middle" font-weight="700">Checkout</text><text x="1110" y="372" text-anchor="middle" fill="#667085" font-size="12.5">UPI autopay (mock)</text>
+<rect x="980" y="414" width="260" height="76" rx="12" fill="#fff" stroke="#e4e7ec"/><text x="1110" y="444" text-anchor="middle" font-weight="700">Tracker</text><text x="1110" y="466" text-anchor="middle" fill="#667085" font-size="12.5">6 milestones, slip notices, WhatsApp updates</text>
+
+<!-- back office -->
+<rect x="320" y="550" width="590" height="150" rx="14" fill="#fff" stroke="#e4e7ec"/>
+<text x="615" y="578" text-anchor="middle" font-weight="700">Back office</text>
+<text x="615" y="604" text-anchor="middle" font-size="13">Leads the advisor could not close, with answers so far</text>
+<text x="615" y="626" text-anchor="middle" font-size="13">Orders in KYC review, orders with a slipped date</text>
+<text x="615" y="648" text-anchor="middle" font-size="13">"Call first" list ranked by a propensity model (ROC-AUC 0.71)</text>
+<text x="615" y="676" text-anchor="middle" font-size="12.5" fill="#667085">Prioritises people. Never rejects a lead.</text>
+
+<!-- store -->
+<rect x="980" y="550" width="260" height="150" rx="14" fill="#fff" stroke="#e4e7ec"/>
+<text x="1110" y="578" text-anchor="middle" font-weight="700">SQLite store</text>
+<text x="1110" y="604" text-anchor="middle" font-size="13">sessions, orders, leads</text>
+<text x="1110" y="626" text-anchor="middle" font-size="13">consents (with withdrawal)</text>
+<text x="1110" y="648" text-anchor="middle" font-size="13">audit events, messages</text>
+<text x="1110" y="676" text-anchor="middle" font-size="12.5" fill="#667085">No document images stored</text>
+
+<!-- human -->
+<rect x="40" y="320" width="210" height="170" rx="14" fill="#fff6e0" stroke="#e0a100"/>
+<text x="145" y="350" text-anchor="middle" font-weight="700" fill="#8a5a00">A person, any time</text>
+<text x="145" y="376" text-anchor="middle" font-size="12.5">Unclear answers twice,</text><text x="145" y="394" text-anchor="middle" font-size="12.5">city outside coverage,</text><text x="145" y="412" text-anchor="middle" font-size="12.5">no fibre or AirFiber,</text><text x="145" y="430" text-anchor="middle" font-size="12.5">KYC needs review, or</text><text x="145" y="448" text-anchor="middle" font-size="12.5">"Talk to a person".</text><text x="145" y="474" text-anchor="middle" font-size="12" fill="#667085">Routed with context kept.</text>
+</g>
+
+<g stroke="#6b7280" stroke-width="2" fill="none" marker-end="url(#a)">
+<path d="M250 142H320"/><path d="M250 228H285V160H320"/><path d="M570 185H640"/><path d="M910 142H980"/><path d="M1110 174V196"/>
+<path d="M1110 260V292H880V320"/>
+<path d="M910 460H945V358H980"/><path d="M1110 396V414"/>
+<path d="M350 260V292H145V320" stroke-dasharray="6 5"/>
+<path d="M145 490V525H320V600" stroke-dasharray="6 5"/><path d="M615 490V550"/><path d="M1110 490V550"/>
+</g>
+<text x="40" y="732" font-size="12" fill="#667085">Solid arrows: the customer journey. Dashed arrows: hand-off to a person.</text><text x="40" y="750" font-size="12.5" fill="#667085">Prototype notes: registries, payments, serviceability and WhatsApp sending are mocks. The LLM adapter is optional and off by default.</text>
+</svg>

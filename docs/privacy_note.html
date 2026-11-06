@@ -1,0 +1,43 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@page{size:A4;margin:10mm 12mm}body{font:8.9pt/1.3 Helvetica,Arial,sans-serif;color:#14171f;margin:0}
+h1{font-size:15pt;margin:0 0 2pt}.sub{color:#667085;font-size:9pt;margin-bottom:8pt}
+h2{font-size:9.6pt;margin:6pt 0 2pt;color:#b80000;text-transform:uppercase;letter-spacing:.4pt}
+table{width:100%;border-collapse:collapse;font-size:8.4pt}td,th{border:1px solid #d9dde3;padding:3.5pt 5pt;vertical-align:top;text-align:left}th{background:#f3f4f6}
+ul{margin:2pt 0 0 14pt;padding:0}li{margin:1.5pt 0}.box{border:1px solid #cfe9da;background:#f3fbf6;padding:5pt 8pt;border-radius:4pt;margin-top:4pt}
+.warn{border-color:#f0d9a0;background:#fff8e6}small{color:#667085}
+</style></head><body>
+<h1>Privacy note: Udyam Digital (prototype)</h1>
+<div class="sub">Team Sigmas, Airtel Sync 2026 Digital Track. Describes what the prototype does today. It uses synthetic data, mock registries and a mock payment step. No compliance certification is claimed.</div>
+
+<h2>What we collect, why, and what we keep</h2>
+<table><tr><th style="width:24%">Data</th><th style="width:30%">Purpose</th><th>What we keep, and for how long in the prototype</th></tr>
+<tr><td>Advisor answers: business type, staff, sites, city, pincode, monthly spend, GST yes/no, language, phone (WhatsApp)</td><td>Recommend a bundle and route to the right person</td><td>Stored with the session and lead so a person never has to ask again. No automatic expiry yet (see gaps).</td></tr>
+<tr><td>Four documents: GST certificate, Udyam certificate, signatory ID, address proof; optional typed GSTIN</td><td>Verify the business for this order (KYC) and nothing else</td><td><b>Images are deleted as soon as the check ends</b> (checked by an automated test). We keep the decision, the flags, and masked identifiers only (for example GSTIN <code>37••••••••6F1ZB</code>).</td></tr>
+<tr><td>Consent record</td><td>Prove what the owner agreed to</td><td>Notice version, time, purpose, fields, language, and any withdrawal.</td></tr>
+<tr><td>UPI ID (mock)</td><td>Autopay mandate demo</td><td>Stored masked (first character and bank handle). No money moves.</td></tr></table>
+
+<h2>How consent works</h2>
+<ul><li><b>Consent comes first.</b> The server refuses to read any document until consent is recorded; the refusal is logged.</li>
+<li>The notice is shown in English or Hindi before upload: purpose, what we read, what we keep, the AI boundary, and the right to withdraw.</li>
+<li><b>Withdrawal is one click.</b> Processing stops, the KYC result and masked identifiers are removed from the order, the order is paused, and the withdrawal is logged. The owner can give consent again at any time.</li></ul>
+
+<h2>The AI boundary</h2>
+<div class="box">The advisor is a scripted flow. An optional language model (off unless a key is set) may read the owner's <b>typed text answers only</b> (cut to 300 characters) to pick out business type, staff, city or spend. Its output is validated and discarded if invalid. <b>It never sees document images, full ID numbers or prices, and it never decides eligibility or price</b>: a rules engine does. Document reading (OCR, checksum, registry lookup) is a separate service from the advisor.</div>
+
+<h2>Other safeguards in the prototype</h2>
+<ul><li>Identifiers are masked in every screen, log and back-office view. Registry matching uses the registration number, never the name.</li>
+<li>Every consent, KYC result, deletion, hand-off and order event is written to an audit log, shown live to the owner in a "behind the scenes" panel.</li>
+<li>WhatsApp: documents are never collected there. A document sent on WhatsApp is refused and the owner is pointed to the secure page. Webhook signatures are verified when a secret is configured.</li>
+<li>A person is always reachable: unclear answers, no coverage, KYC review or "Talk to a person" hand the case over with the answers so far.</li></ul>
+
+<h2>Regulation (our understanding, not legal advice)</h2>
+<p style="margin:2pt 0">India's Digital Personal Data Protection Rules were notified on 13 November 2025. Consent-manager provisions apply from 13 November 2026 and most other duties from 13 May 2027. The design (purpose limitation, informed consent, easy withdrawal, minimal retention) is meant to fit this, but it has not been reviewed by a lawyer.</p>
+
+<h2>Gaps before real customers</h2>
+<div class="box warn"><ul style="margin-top:0">
+<li>Retention schedule with automatic deletion; today leads and audit entries have no expiry.</li>
+<li>Encryption at rest, TLS, secrets management, and login with roles for the back office (it is open in the demo).</li>
+<li>Processor agreements and data-location review for any OCR or language-model vendor.</li>
+<li>Consent-manager integration, a named grievance contact, a breach-response process, and a data-subject access and erasure workflow.</li>
+<li>Independent security and privacy review.</li></ul></div>
+</body></html>

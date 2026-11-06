@@ -1,0 +1,18 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2325d366'/%3E%3C/svg%3E">
+<title>WhatsApp channel · Accel Business</title><link rel="stylesheet" href="/static/style.css"><link rel="stylesheet" href="/static/whatsapp.css"></head><body>
+<header class="top"><a class="logo" href="/"><span class="mark">A</span><span><b>Accel Business</b><small>WhatsApp channel (simulator)</small></span></a>
+<div class="tools" style="margin-left:auto"><a class="ghost" href="/" style="text-decoration:none">Web view</a></div></header>
+<div class="wa-layout">
+ <section class="phone" aria-label="WhatsApp simulator">
+  <div class="wa-head"><span class="wa-av">A</span><div><b>Accel Business</b><small>business account · simulated</small></div></div>
+  <div class="wa-chat" id="wa-chat" aria-live="polite"></div>
+  <form class="wa-bar" id="wa-form" autocomplete="off"><input id="wa-input" type="text" placeholder="Type a message" aria-label="Message"><button id="wa-send" type="submit" aria-label="Send">➤</button></form>
+  <div class="sheet hide" id="wa-sheet"><div class="sheet-box"><div class="sheet-h"><b id="wa-sheet-t">Choose</b><button class="x" id="wa-sheet-x" aria-label="Close">×</button></div><div id="wa-rows"></div></div></div>
+ </section>
+ <aside class="wa-side">
+  <div class="panel"><h3>What this is</h3><p class="muted">The same advisor and rules engine as the web page, behind a WhatsApp Cloud API style webhook. Sending is mocked: the webhook returns the outbound messages and this page draws them. Documents are never collected on WhatsApp; KYC happens on the web page after consent.</p>
+  <label class="lab" for="wa-num">Customer number</label><input type="text" id="wa-num" value="919800000000"><div class="row" style="margin-top:8px"><button class="btn alt sm" id="wa-reset">Restart chat</button></div></div>
+  <div class="panel"><h3>Webhook, last call</h3><p class="muted small">POST /api/whatsapp/webhook</p><pre id="wa-json" class="json">Send a message to see the payloads.</pre></div>
+ </aside>
+</div><div id="toasts"></div><script src="/static/whatsapp.js"></script></body></html>

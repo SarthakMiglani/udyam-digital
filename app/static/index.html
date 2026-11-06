@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23e40000'/%3E%3Ctext x='16' y='22' font-size='18' font-weight='700' text-anchor='middle' fill='white' font-family='Arial'%3EA%3C/text%3E%3C/svg%3E">
+<title>Udyam Digital · Accel Business</title>
+<link rel="stylesheet" href="/static/style.css">
+</head><body>
+<header class="top">
+  <a class="logo" href="/" aria-label="Accel Business home"><span class="mark">A</span><span><b>Accel Business</b><small id="tagline">Udyam Digital · prototype on synthetic data</small></span></a>
+  <ol class="stepper" id="stepper" aria-label="Progress"></ol>
+  <div class="tools">
+    <button class="ghost" id="btnPeek" aria-expanded="false">Behind the scenes</button>
+    <button class="ghost" id="btnRestart">Start over</button>
+  </div>
+</header>
+
+<div class="layout">
+  <main id="main" tabindex="-1">
+    <section id="v-hero" class="view"></section>
+    <section id="v-chat" class="view hide" aria-live="polite"></section>
+    <section id="v-escalated" class="view hide"></section>
+    <section id="v-quote" class="view hide"></section>
+    <section id="v-consent" class="view hide"></section>
+    <section id="v-kyc" class="view hide"></section>
+    <section id="v-checkout" class="view hide"></section>
+    <section id="v-order" class="view hide"></section>
+  </main>
+  <aside id="aside" aria-label="Behind the scenes">
+    <div class="panel">
+      <div class="panel-h"><h3 id="peekTitle">Behind the scenes</h3><button class="ghost sm" id="peekClose">Close</button></div>
+      <p class="muted" id="peekHelp">Rules, consent and deletion events appear here as you go. The AI only talks; the rules engine decides eligibility and price.</p>
+      <div id="events" class="events"></div>
+    </div>
+    <div class="panel"><h3>For judges</h3>
+      <p class="muted">Back office view: <a href="/office" target="_blank" rel="noopener">/office</a><br>
+      All data is synthetic. Payments, registries, serviceability and WhatsApp are mocked.</p></div>
+  </aside>
+</div>
+
+<div id="toasts" aria-live="assertive"></div>
+<div id="modal" class="modal hide" role="dialog" aria-modal="true"><div class="modal-box"><p id="modalText"></p><div class="row end"><button class="btn alt" id="modalNo"></button><button class="btn" id="modalYes"></button></div></div></div>
+<script src="/static/app.js"></script>
+</body></html>
